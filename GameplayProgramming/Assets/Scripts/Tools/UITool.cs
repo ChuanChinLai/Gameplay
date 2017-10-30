@@ -25,16 +25,19 @@ public static class UITool
 	public static T GetUIComponent<T>(GameObject Container,string UIName) where T : UnityEngine.Component
 	{
 		
-		GameObject ChildGameObject = UnityTool.FindChildGameObject( Container, UIName);
+		GameObject ChildGameObject = UnityTool.FindChildGameObject(Container, UIName);
+
 		if( ChildGameObject == null)
 			return null;
 		
 		T tempObj = ChildGameObject.GetComponent<T>();
+
 		if( tempObj == null)
 		{
 			Debug.LogWarning("Component[" + UIName+"] is not ["+ typeof(T) +"]");		
 			return null;
 		}
+
 		return tempObj;
 	}
 	
@@ -69,11 +72,13 @@ public static class UITool
 	public static T GetUIComponent<T>(string UIName) where T : UnityEngine.Component
 	{
 		GameObject UIRoot = GameObject.Find("Canvas");
+
 		if(UIRoot==null)
 		{
 			Debug.LogWarning("No UI Canvas");
 			return null;
 		}
-		return GetUIComponent<T>( UIRoot,UIName); 
+
+		return GetUIComponent<T>(UIRoot, UIName); 
 	}
 }

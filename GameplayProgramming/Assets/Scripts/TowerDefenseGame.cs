@@ -132,34 +132,34 @@ public class TowerDefenseGame
 	
 	private void InputProcess()
 	{
-		//  Mouse左鍵
+		// mouse left
 		if(Input.GetMouseButtonUp( 0 ) == false)
 			return ;
 		
-		//由攝影機產生一條射線
+
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit[] hits = Physics.RaycastAll(ray);		
-		
-		//// 走訪每一個被Hit到的GameObject
-		//foreach (RaycastHit hit in hits)
-		//{
-		//	// 是否有兵營點擊
-		//	CampOnClick CampClickScript = hit.transform.gameObject.GetComponent<CampOnClick>();
-		//	if( CampClickScript!=null )
-		//	{
-		//		CampClickScript.OnClick();
-		//		return;
-		//	}
-			
-		//	// 是否有角色點擊
-		//	SoldierOnClick SoldierClickScript = hit.transform.gameObject.GetComponent<SoldierOnClick>();
-		//	if( SoldierClickScript!=null )
-		//	{
-		//		SoldierClickScript.OnClick();
-		//		return ;
-		//	}
-		//}
-	}
+		RaycastHit[] hits = Physics.RaycastAll(ray);
+
+        // 走訪每一個被Hit到的GameObject
+        foreach (RaycastHit hit in hits)
+        {
+            //// 是否有兵營點擊
+            //CampOnClick CampClickScript = hit.transform.gameObject.GetComponent<CampOnClick>();
+            //if (CampClickScript != null)
+            //{
+            //    CampClickScript.OnClick();
+            //    return;
+            //}
+
+            //// 是否有角色點擊
+            //SoldierOnClick SoldierClickScript = hit.transform.gameObject.GetComponent<SoldierOnClick>();
+            //if (SoldierClickScript != null)
+            //{
+            //    SoldierClickScript.OnClick();
+            //    return;
+            //}
+        }
+    }
 	
 
 	public bool ThisGameIsOver()
@@ -220,9 +220,11 @@ public class TowerDefenseGame
 	{
 		m_CharacterSystem.RunVisitor( Visitor );
 	}
+    */
 
-	// 註冊遊戲事件
-	public void RegisterGameEvent( ENUM_GameEvent emGameEvent, IGameEventObserver Observer)
+    #region Game Event
+    // 註冊遊戲事件
+    public void RegisterGameEvent( ENUM_GameEvent emGameEvent, IGameEventObserver Observer)
 	{
 		m_GameEventSystem.RegisterObserver( emGameEvent , Observer );
 	}
@@ -232,8 +234,9 @@ public class TowerDefenseGame
 	{
 		m_GameEventSystem.NotifySubject( emGameEvent, Param);
 	}
+    #endregion
 
-
+    /*
 	public void ShowCampInfo( ICamp Camp )
 	{
 		m_CampInfoUI.ShowInfo( Camp );

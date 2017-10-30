@@ -5,7 +5,8 @@ using System.Collections;
 public abstract class IGameSystem
 {
 	protected TowerDefenseGame m_PBDGame = null;
-	public IGameSystem(TowerDefenseGame PBDGame )
+
+	public IGameSystem(TowerDefenseGame PBDGame)
 	{
 		m_PBDGame = PBDGame;
 	}

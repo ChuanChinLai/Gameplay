@@ -13,9 +13,9 @@ public class MainMenuState : ISceneState
 
 	public override void StateBegin()
 	{
-
 		Button tmpBtn = UITool.GetUIComponent<Button>("StartGameBtn");
-		if(tmpBtn!=null)
+
+		if(tmpBtn != null)
 			tmpBtn.onClick.AddListener( ()=> OnStartGameBtnClick(tmpBtn) );
 	}
 			

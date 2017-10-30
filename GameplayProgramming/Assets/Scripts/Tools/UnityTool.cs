@@ -3,14 +3,14 @@ using System.Collections.Generic;
 	
 public static class UnityTool
 {
-	// 附加GameObject
+
 	public static void Attach( GameObject ParentObj, GameObject ChildObj, Vector3 Pos )
 	{
 		ChildObj.transform.parent = ParentObj.transform;
 		ChildObj.transform.localPosition = Pos;
 	}
 
-	// 附加GameObject
+
 	public static void AttachToRefPos( GameObject ParentObj, GameObject ChildObj,string RefPointName,Vector3 Pos )
 	{
 		// Search 
@@ -23,7 +23,7 @@ public static class UnityTool
 			{                
 				if (bFinded == true)
 				{
-					Debug.LogWarning("物件["+ParentObj.transform.name+"]內有兩個以上的參考點["+RefPointName+"]");
+					Debug.LogWarning("Object["+ParentObj.transform.name+"]內有兩個以上的參考點["+RefPointName+"]");
 					continue;
 				}
 				bFinded = true;
