@@ -12,46 +12,43 @@ public enum ENUM_Enemy
 	Max,
 }
 
-// Enemy角色界面
 public abstract class IEnemy : ICharacter
 {
 	protected ENUM_Enemy m_emEnemyType = ENUM_Enemy.Null;
 
 	public IEnemy()
-	{}
+	{
+
+    }
 
 	public ENUM_Enemy GetEnemyType() 
 	{
 		return m_emEnemyType;
 	}
+
+
+    public override void UnderAttack(ICharacter Attacker)
+    {
+
+        m_Attribute.CalDmgValue(Attacker);
+
+        DoPlayHitSound();
+        DoShowHitEffect(); 
+
+        if (m_Attribute.GetNowHP() <= 0)
+        {
+            Killed();
+        }
+    }
+
+    //// 執行Visitor
+    //public override void RunVisitor(ICharacterVisitor Visitor)
+    //{
+    //	Visitor.VisitEnemy(this);
+    //}
+
+    public abstract void DoPlayHitSound();
 	
-	//// 被武器攻擊
-	//public override void UnderAttack( ICharacter Attacker)
-	//{
-	//	// 計算傷害值
-	//	m_Attribute.CalDmgValue( Attacker );
 
-	//	DoPlayHitSound();// 音效
-	//	DoShowHitEffect();// 特效 
-
-	//	// 是否陣亡
-	//	if( m_Attribute.GetNowHP() <= 0 )		
-	//	{
-	//		Killed();
-	//	}
-	//}
-
-	//// 執行Visitor
-	//public override void RunVisitor(ICharacterVisitor Visitor)
-	//{
-	//	Visitor.VisitEnemy(this);
-	//}
-
-	// 播放音效
-	public abstract void DoPlayHitSound();
-	
-	// 播放特效
 	public abstract void DoShowHitEffect();
-
-
 }

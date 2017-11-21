@@ -22,20 +22,20 @@ public class TowerDefenseGame
 	// GameSystem
 	private GameEventSystem m_GameEventSystem = null;	 
 
-    /*
-	private CampSystem m_CampSystem	 = null; 			 
-	private StageSystem m_StageSystem = null; 			 
+    
+	//private CampSystem m_CampSystem	 = null; 			 
+	//private StageSystem m_StageSystem = null; 			 
 	private CharacterSystem m_CharacterSystem = null; 	 
-	private APSystem m_ApSystem = null; 				 
-	private AchievementSystem m_AchievementSystem = null;
+	//private APSystem m_ApSystem = null; 				 
+	//private AchievementSystem m_AchievementSystem = null;
 
 
-	// UI
-	private CampInfoUI m_CampInfoUI = null;				 
-	private SoldierInfoUI m_SoldierInfoUI = null;		 
-	private GameStateInfoUI m_GameStateInfoUI = null;
-	private GamePauseUI m_GamePauseUI = null;			 
-		*/
+	//// UI
+	//private CampInfoUI m_CampInfoUI = null;				 
+	//private SoldierInfoUI m_SoldierInfoUI = null;		 
+	//private GameStateInfoUI m_GameStateInfoUI = null;
+	//private GamePauseUI m_GamePauseUI = null;			 
+
 
 	private TowerDefenseGame()
 	{}
@@ -47,29 +47,27 @@ public class TowerDefenseGame
         m_IsGameOver = false;
 		
 		m_GameEventSystem = new GameEventSystem(this);
-
-        /*
-		m_CampSystem = new CampSystem(this);			
-		m_StageSystem = new StageSystem(this);			
+   
+		//m_CampSystem = new CampSystem(this);			
+		//m_StageSystem = new StageSystem(this);			
 		m_CharacterSystem = new CharacterSystem(this); 	
-		m_ApSystem = new APSystem(this);				
-		m_AchievementSystem = new AchievementSystem(this); 
+		//m_ApSystem = new APSystem(this);				
+		//m_AchievementSystem = new AchievementSystem(this); 
 
 		
-		m_CampInfoUI = new CampInfoUI(this); 			
-		m_SoldierInfoUI = new SoldierInfoUI(this); 										
-		m_GameStateInfoUI = new GameStateInfoUI(this); 	
-		m_GamePauseUI = new GamePauseUI (this);			
+		//m_CampInfoUI = new CampInfoUI(this); 			
+		//m_SoldierInfoUI = new SoldierInfoUI(this); 										
+		//m_GameStateInfoUI = new GameStateInfoUI(this); 	
+		//m_GamePauseUI = new GamePauseUI (this);			
 
 
 		// 注入到其它系統
-		EnemyAI.SetStageSystem( m_StageSystem );
+//		EnemyAI.SetStageSystem( m_StageSystem );
 
 		// 載入存檔
-		LoadData();
+//		LoadData();
 
-		// 註冊遊戲事件系統
-                */
+
         ResigerGameEvent();
 	}
 
@@ -93,7 +91,7 @@ public class TowerDefenseGame
 
         //m_CampSystem.Release();
         //m_StageSystem.Release();
-        //m_CharacterSystem.Release();
+        m_CharacterSystem.Release();
         //m_ApSystem.Release();
         //m_AchievementSystem.Release();
 
@@ -113,12 +111,11 @@ public class TowerDefenseGame
 	{
 		// Player Input
 		InputProcess();
-
-		
+	
 		m_GameEventSystem.Update();
 		//m_CampSystem.Update();
 		//m_StageSystem.Update();
-		//m_CharacterSystem.Update();
+		m_CharacterSystem.Update();
 		//m_ApSystem.Update();
 		//m_AchievementSystem.Update();
 
@@ -134,13 +131,11 @@ public class TowerDefenseGame
 	{
 		// mouse left
 		if(Input.GetMouseButtonUp( 0 ) == false)
-			return ;
-		
-
+			return;
+	
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit[] hits = Physics.RaycastAll(ray);
 
-        // 走訪每一個被Hit到的GameObject
         foreach (RaycastHit hit in hits)
         {
             //// 是否有兵營點擊
@@ -173,7 +168,7 @@ public class TowerDefenseGame
         m_IsGameOver = true;
 	}
 
-    /*
+    
 	public void AddSoldier( ISoldier theSoldier)
 	{
 		if( m_CharacterSystem !=null)
@@ -202,25 +197,24 @@ public class TowerDefenseGame
 	}
 
 	
-	public int GetEnemyCount()
-	{
-		if( m_CharacterSystem !=null)
-			return m_CharacterSystem.GetEnemyCount();
-		return 0;
-	}
+	//public int GetEnemyCount()
+	//{
+	//	if( m_CharacterSystem !=null)
+	//		return m_CharacterSystem.GetEnemyCount();
+	//	return 0;
+	//}
 
-	// 增加敵人陣亡數量(不透過GameEventSystem呼叫) 
-	public void AddEnemyKilledCount()
-	{
-		m_StageSystem.AddEnemyKilledCount();
-	}
+	//public void AddEnemyKilledCount()
+	//{
+	//	m_StageSystem.AddEnemyKilledCount();
+	//}
 
-	// 執行角色系統的Visitor
-	public void RunCharacterVisitor(ICharacterVisitor Visitor)
-	{
-		m_CharacterSystem.RunVisitor( Visitor );
-	}
-    */
+	//// 執行角色系統的Visitor
+	//public void RunCharacterVisitor(ICharacterVisitor Visitor)
+	//{
+	//	m_CharacterSystem.RunVisitor( Visitor );
+	//}
+    
 
     #region Game Event
     // 註冊遊戲事件

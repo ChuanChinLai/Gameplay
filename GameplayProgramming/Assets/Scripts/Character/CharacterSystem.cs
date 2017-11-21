@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-// 管理創建出來的角色
 public class CharacterSystem : IGameSystem
 {
 	private List<ICharacter> m_Soldiers = new List<ICharacter>();
@@ -16,7 +15,6 @@ public class CharacterSystem : IGameSystem
 
 	#region Character Management
 
-	/*
 	public void AddSoldier( ISoldier theSoldier)
 	{
 		m_Soldiers.Add( theSoldier );
@@ -39,16 +37,13 @@ public class CharacterSystem : IGameSystem
 	{
 		m_Enemys.Remove( theEnemy );
 	}
-    */
 
-	
 	public void RemoveCharacter()
 	{
 		RemoveCharacter( m_Soldiers, m_Enemys, ENUM_GameEvent.SoldierKilled );
 		RemoveCharacter( m_Enemys, m_Soldiers, ENUM_GameEvent.EnemyKilled);
 	}
 
-	
 	public void RemoveCharacter(List<ICharacter> Characters, List<ICharacter> Opponents, ENUM_GameEvent emEvent)
 	{
 		
@@ -72,7 +67,7 @@ public class CharacterSystem : IGameSystem
 		{
 
 			foreach(ICharacter Opponent in Opponents)
-//				Opponent.RemoveAITarget( CanRemove );
+				Opponent.RemoveAITarget( CanRemove );
 
 			CanRemove.Release();
 			Characters.Remove( CanRemove );
@@ -80,24 +75,21 @@ public class CharacterSystem : IGameSystem
 	}
 
     /*
-	// Enemy數量
 	UnitCountVisitor m_UnitCountVisitor =  new UnitCountVisitor();
 	public int GetEnemyCount()
 	{
-		// 使用Vistiro
 		m_UnitCountVisitor.Reset();
 		RunVisitor( m_UnitCountVisitor );
 		return m_UnitCountVisitor.EnemyCount;
 
-		// 直接取得
 		//return m_Enemys.Count;
 	}
 
-	// 執行Visitor
 	public void RunVisitor(ICharacterVisitor Visitor)
 	{
 		foreach( ICharacter Character in m_Soldiers)
 			Character.RunVisitor( Visitor);
+
 		foreach( ICharacter Character in m_Enemys)
 			Character.RunVisitor( Visitor);
 	}
@@ -141,18 +133,15 @@ public class CharacterSystem : IGameSystem
 	#endregion
 
 
-
-	/*#region 直接取得角色數量的實作方式
-	// 取得Soldier數量
 	public int GetSoldierCount()
 	{
 		return m_Soldiers.Count;
 	}
 
-	// 取得各Soldier單位數量
 	public int GetSoldierCount(ENUM_Soldier emSolider)
 	{
-		int Count =0;
+		int Count = 0;
+
 		foreach(ISoldier pSoldier in m_Soldiers)
 		{
 			if(pSoldier == null)
@@ -161,9 +150,8 @@ public class CharacterSystem : IGameSystem
 			if( pSoldier.GetSoldierType() == emSolider)
 				Count++;
 		}
+
 		return Count;
 	}		
-	#endregion*/
-
 
 }

@@ -18,16 +18,13 @@ public abstract class ICharacter
 	protected bool  m_bCheckKilled  = false;		
 	protected bool  m_bCanRemove    = false;
     protected float m_RemoveTimer   = 1.5f;
-    /*
-	private IWeapon m_Weapon = null;			// 使用的武器
-	protected ICharacterAttr m_Attribute = null;// 數值
-	protected ICharacterAI m_AI = null;			// AI
-    */
-
-
+    
+	private IWeapon m_Weapon = null;			
+	protected ICharacterAttr m_Attribute = null;
+	protected ICharacterAI m_AI = null;
+    
     public ICharacter(){}
 
-	// 設定Unity模型
 	public void SetGameObject( GameObject theGameObject )
 	{
 		m_GameObject = theGameObject ;
@@ -60,43 +57,43 @@ public abstract class ICharacter
 		return m_AssetName;
 	}
 
-	// 取得Icon名稱
+
 	public string  GetIconSpriteName()
 	{
 		return m_IconSpriteName ;
 	}
 
-	// 取得屬性ID
+
 	public int GetAttrID()
 	{
 		return m_AttrID;
 	}
 
-    /*
-	// 取得目前的值
+
+
 	public ICharacterAttr GetCharacterAttr()
 	{
 		return m_Attribute;
 	}
-	*/
+
     
-	// 取得角色名稱
+	
 	public string GetCharacterName()
 	{
 		return m_Name;	
 	}
 
-	// 更新
+
 	public void Update()
 	{
 		if(m_bKilled)
 		{
 			m_RemoveTimer -= Time.deltaTime;
-			if( m_RemoveTimer <=0 )
+			if( m_RemoveTimer <= 0 )
 				m_bCanRemove = true;
 		}
-		
-//		m_Weapon.Update();
+        
+		m_Weapon.Update();
 	}
 
 	#region movement
@@ -119,93 +116,84 @@ public abstract class ICharacter
 	}
     #endregion
 
-    //#region AI
-    //// 設定AI
-    //public void SetAI(ICharacterAI CharacterAI)
-    //{
-    //	m_AI = CharacterAI;
-    //}
+    #region AI
 
-    // 更新AI
-    public void UpdateAI(List<ICharacter> Targets)
+    public void SetAI(ICharacterAI CharacterAI)
     {
-//        m_AI.Update(Targets);
+        m_AI = CharacterAI;
     }
 
-    //// 通知AI有角色被移除
-    //public void RemoveAITarget( ICharacter Targets)
-    //{
-    //	m_AI.RemoveAITarget(Targets);
-    //}
-    //#endregion
+    public void UpdateAI(List<ICharacter> Targets)
+    {
+        m_AI.Update(Targets);
+    }
 
-    //#region Attack
-    //// 攻擊目標
-    //public void Attack(ICharacter Target)
-    //{
-    //    // 設定武器額外攻擊加乘
-    //    SetWeaponAtkPlusValue(m_Attribute.GetAtkPlusValue());
+    public void RemoveAITarget(ICharacter Targets)
+    {
+        m_AI.RemoveAITarget(Targets);
+    }
+    #endregion
 
-    //    // 攻擊
-    //    WeaponAttackTarget(Target);
+    #region Attack
 
-    //    // 攻擊動作
-    //    m_GameObject.GetComponent<CharacterMovement>().PlayAttackAnim();
+    public void Attack(ICharacter Target)
+    {
+        SetWeaponAtkPlusValue(m_Attribute.GetAtkPlusValue());
 
-    //    // 面向目標
-    //    m_GameObject.transform.forward = Target.GetPosition() - GetPosition();
-    //}
+        WeaponAttackTarget(Target);
 
-    //// 被其他角色攻擊
-    //public abstract void UnderAttack(ICharacter Attacker);
-    //#endregion
+//        m_GameObject.GetComponent<CharacterMovement>().PlayAttackAnim();
 
-    //#region 武器
-    //// 設定使用的武器
-    //public void SetWeapon(IWeapon Weapon)
-    //{
-    //	if( m_Weapon != null)
-    //		m_Weapon.Release();
-    //	m_Weapon = Weapon;
+        m_GameObject.transform.forward = Target.GetPosition() - GetPosition();
+    }
 
-    //	// 設定武器擁有者
-    //	m_Weapon.SetOwner(this);
 
-    //	// 設定Unity GameObject的層級
-    //	UnityTool.AttachToRefPos( m_GameObject, m_Weapon.GetGameObject(),"weapon-point" ,Vector3.zero);
-    //}
+    public abstract void UnderAttack(ICharacter Attacker);
+    #endregion
 
-    //// 取得武器
-    //public IWeapon GetWeapon()
-    //{
-    //	return m_Weapon;
-    //}
+    #region Weapon
 
-    //// 設定額外攻擊力
-    //protected void SetWeaponAtkPlusValue(int Value)
-    //{
-    //	m_Weapon.SetAtkPlusValue( Value );
-    //}
+    public void SetWeapon(IWeapon Weapon)
+    {
+        if (m_Weapon != null)
+            m_Weapon.Release();
 
-    //// 武器攻擊目標
-    //protected void WeaponAttackTarget( ICharacter Target)
-    //{
-    //	m_Weapon.Fire( Target );
-    //}
+        m_Weapon = Weapon;
 
-    //// 計算攻擊力
-    //public int GetAtkValue()
-    //{
-    //	// 武器攻擊力 + 角色數值的加乘
-    //	return m_Weapon.GetAtkValue();
-    //}
+        m_Weapon.SetOwner(this);
 
-    //// 取得攻擊距離
-    //public float GetAttackRange()
-    //{
-    //	return m_Weapon.GetAtkRange();
-    //}		
-    //#endregion
+        UnityTool.AttachToRefPos(m_GameObject, m_Weapon.GetGameObject(), "weapon-point", Vector3.zero);
+    }
+
+
+    public IWeapon GetWeapon()
+    {
+        return m_Weapon;
+    }
+
+
+    protected void SetWeaponAtkPlusValue(int Value)
+    {
+        m_Weapon.SetAtkPlusValue(Value);
+    }
+
+
+    protected void WeaponAttackTarget(ICharacter Target)
+    {
+        m_Weapon.Fire(Target);
+    }
+
+
+    public int GetAtkValue()
+    {
+        return m_Weapon.GetAtkValue();
+    }
+
+    public float GetAttackRange()
+    {
+        return m_Weapon.GetAtkRange();
+    }
+    #endregion
 
     #region Killed and Killed Event
 
@@ -237,61 +225,54 @@ public abstract class ICharacter
 	{
 		return m_bCanRemove;
 	}
-	#endregion
+    #endregion
 
-	//#region 角色數值
-	//// 設定角色數值
-	//public virtual void SetCharacterAttr( ICharacterAttr CharacterAttr)
-	//{
-	//	// 設定
-	//	m_Attribute = CharacterAttr;
-	//	m_Attribute.InitAttr ();
+    #region 角色數值
+    public virtual void SetCharacterAttr(ICharacterAttr CharacterAttr)
+    {
+        m_Attribute = CharacterAttr;
+        m_Attribute.InitAttr();
 
-	//	// 設定移動速度
-	//	m_NavAgent.speed = m_Attribute.GetMoveSpeed();
-	//	//Debug.Log ("設定移動速度:"+m_NavAgent.speed);
+        m_NavAgent.speed = m_Attribute.GetMoveSpeed();
 
-	//	// 名稱
-	//	m_Name = m_Attribute.GetAttrName();
-	//}
-	//#endregion
+        m_Name = m_Attribute.GetAttrName();
+    }
+    #endregion
 
-	//#region 音效特效
+    //#region 音效特效
 
-	//// 播放音效
-	//public void PlaySound(string ClipName)
-	//{
-	//	//  取得音效
-	//	IAssetFactory Factory = PBDFactory.GetAssetFactory();
-	//	AudioClip theClip = Factory.LoadAudioClip( ClipName);
-	//	if(theClip == null)
-	//		return ;
-	//	m_Audio.clip = theClip;
-	//	m_Audio.Play();
-	//}
+    //// 播放音效
+    //public void PlaySound(string ClipName)
+    //{
+    //	//  取得音效
+    //	IAssetFactory Factory = PBDFactory.GetAssetFactory();
+    //	AudioClip theClip = Factory.LoadAudioClip( ClipName);
+    //	if(theClip == null)
+    //		return ;
+    //	m_Audio.clip = theClip;
+    //	m_Audio.Play();
+    //}
 
-	//// 播放特效
-	//public void PlayEffect(string EffectName)
-	//{
-	//	//  取得特效
-	//	IAssetFactory Factory = PBDFactory.GetAssetFactory();
-	//	GameObject EffectObj = Factory.LoadEffect( EffectName );
-	//	if(EffectObj == null)
-	//		return ;
+    //// 播放特效
+    //public void PlayEffect(string EffectName)
+    //{
+    //	//  取得特效
+    //	IAssetFactory Factory = PBDFactory.GetAssetFactory();
+    //	GameObject EffectObj = Factory.LoadEffect( EffectName );
+    //	if(EffectObj == null)
+    //		return ;
 
-	//	// 加入
-	//	UnityTool.Attach( m_GameObject, EffectObj, Vector3.zero); 
-	//}
-	//#endregion
+    //	// 加入
+    //	UnityTool.Attach( m_GameObject, EffectObj, Vector3.zero); 
+    //}
+    //#endregion
 
-	//// 執行Visitor
-	//public virtual void RunVisitor(ICharacterVisitor Visitor)
-	//{
-	//	Visitor.VisitCharacter(this);
-	//}
-			
-
-} 
+    //// 執行Visitor
+    //public virtual void RunVisitor(ICharacterVisitor Visitor)
+    //{
+    //	Visitor.VisitCharacter(this);
+    //}
+}
 
 
 

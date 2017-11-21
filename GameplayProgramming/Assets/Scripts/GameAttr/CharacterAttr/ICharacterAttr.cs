@@ -73,16 +73,13 @@ public abstract class ICharacterAttr
 	}
 
 
-	//public void CalDmgValue( ICharacter Attacker )
-	//{
- //       // 取得武器功擊力
- //       int AtkValue = Attacker.GetAtkValue();
+    public void CalDmgValue(ICharacter Attacker)
+    {
+        int AtkValue = Attacker.GetAtkValue();
 
- //       // 減傷
- //       AtkValue -= m_AttrStrategy.GetDmgDescValue(this);
+        AtkValue -= m_AttrStrategy.GetDmgDescValue(this);
 
- //       // 扣去傷害
- //       m_NowHP -= AtkValue;
- //   }
+        m_NowHP -= AtkValue;
+    }
 
 }

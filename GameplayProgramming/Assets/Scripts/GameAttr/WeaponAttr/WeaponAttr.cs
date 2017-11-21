@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 武器數值類別
 public class WeaponAttr
 {
 	public int 		Atk 	{get; private set;}
