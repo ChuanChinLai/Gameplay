@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/StartScene.unity
+- path: Assets/TDGAssets/Scenes/StartScene.unity
   isLoaded: 1
   isActive: 1
