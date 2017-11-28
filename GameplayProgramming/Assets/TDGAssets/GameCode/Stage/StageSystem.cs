@@ -7,7 +7,7 @@ public class StageSystem : IGameSystem
 	private int m_NowHeart = MAX_HEART;	
 	private int	m_EnemyKilledCount = 0;	
 
-	private int			  m_NowStageLv	 = 1;
+	private int			  m_NowStageLv = 1;
 	private IStageHandler m_NowStageHandler = null;
 	private IStageHandler m_RootStageHandler = null;	
 	private List<Vector3> m_SpawnPosition = null;
@@ -44,11 +44,10 @@ public class StageSystem : IGameSystem
 	{
 		m_NowStageHandler.Update();
 
-		if(m_TDGame.GetEnemyCount() ==  0 )
+		if(m_TDGame.GetEnemyCount() == 0)
 		{
 			if( m_NowStageHandler.IsFinished() == false)
 				return;
-
 
 			IStageHandler NewStageData = m_NowStageHandler.CheckStage();
 
@@ -95,8 +94,8 @@ public class StageSystem : IGameSystem
 	
 	private void InitializeStageData()
 	{
-		if( m_RootStageHandler!=null)
-			return ;
+		if( m_RootStageHandler != null)
+			return;
 
 		Vector3 AttackPosition = GetAttackPosition();
 
@@ -108,7 +107,7 @@ public class StageSystem : IGameSystem
 		StageData 	= new NormalStageData(3f, GetSpawnPosition(), AttackPosition );
 		StageData.AddStageData( ENUM_Enemy.Elf, ENUM_Weapon.Gun, 3); 
 		StageScore 	= new StageScoreEnemyKilledCount(3, this);
-		NewStage = new NormalStageHandler(StageScore, StageData );
+		NewStage = new NormalStageHandler(StageScore, StageData);
 
 		m_RootStageHandler = NewStage;
 
@@ -200,7 +199,7 @@ public class StageSystem : IGameSystem
 		{
 			GameObject tempObj = UnityTool.FindGameObject("EnemyAttackPosition");
 
-			if( tempObj==null)
+			if(tempObj==null)
 				return Vector3.zero;
 
 			tempObj.SetActive(false);

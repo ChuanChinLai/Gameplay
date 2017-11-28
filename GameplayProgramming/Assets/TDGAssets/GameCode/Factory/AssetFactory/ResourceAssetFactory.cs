@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 從專案的Resource中,將Unity Asset實體化成GameObject的工廠類別
 public class ResourceAssetFactory : IAssetFactory 
 {
 	public const string SoldierPath = "Characters/Soldier/";
@@ -55,7 +54,7 @@ public class ResourceAssetFactory : IAssetFactory
 	{
 		// 從Resrouce中載入
 		UnityEngine.Object res = LoadGameObjectFromResourcePath( AssetName );
-		if(res==null)
+		if(res == null)
 			return null;
 		return  UnityEngine.Object.Instantiate(res) as GameObject;
 	}

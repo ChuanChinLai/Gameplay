@@ -66,22 +66,4 @@ public class AchievementSystem : IGameSystem
 	{
 		m_LastSaveData = SaveData;
 	}
-
-	// 儲存記錄
-	/*public void SaveData()
-	{
-		PlayerPrefs.SetInt("EnemyKilledCount"	,m_EnemyKilledCount);
-		PlayerPrefs.SetInt("SoldierKilledCount"	,m_SoldierKilledCount);
-		PlayerPrefs.SetInt("StageLv"		 	,m_StageLv);
-	}
-
-	// 取回記錄
-	public void LoadData()
-	{
-		m_EnemyKilledCount 	= PlayerPrefs.GetInt("EnemyKilledCount",0);
-		m_SoldierKilledCount= PlayerPrefs.GetInt("SoldierKilledCount",0);
-		m_StageLv 			= PlayerPrefs.GetInt("StageLv",0);
-	}*/
-
-
 }

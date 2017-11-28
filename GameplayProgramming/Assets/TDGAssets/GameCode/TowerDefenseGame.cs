@@ -3,7 +3,6 @@ using System.Collections;
 
 public class TowerDefenseGame
 {
-	//------------------------------------------------------------------------
 	// Singleton
 	private static TowerDefenseGame _instance;
 
@@ -113,14 +112,15 @@ public class TowerDefenseGame
 		foreach (RaycastHit hit in hits)
 		{
 			CampOnClick CampClickScript = hit.transform.gameObject.GetComponent<CampOnClick>();
-			if( CampClickScript!=null )
+
+			if( CampClickScript != null )
 			{
 				CampClickScript.OnClick();
 				return;
 			}
 			
 			SoldierOnClick SoldierClickScript = hit.transform.gameObject.GetComponent<SoldierOnClick>();
-			if( SoldierClickScript!=null )
+			if( SoldierClickScript != null )
 			{
 				SoldierClickScript.OnClick();
 				return ;
@@ -164,7 +164,7 @@ public class TowerDefenseGame
 
 	public int GetEnemyCount()
 	{
-		if( m_CharacterSystem !=null)
+		if( m_CharacterSystem != null)
 			return m_CharacterSystem.GetEnemyCount();
 
 		return 0;

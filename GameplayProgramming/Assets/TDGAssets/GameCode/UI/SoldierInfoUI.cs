@@ -56,8 +56,9 @@ public class SoldierInfoUI : IUserInterface
 
 	public void ShowInfo(ISoldier Soldier)
 	{
-		//Debug.Log("顯示Soldier資訊");
+
 		m_Soldier = Soldier;
+
 		if( m_Soldier == null || m_Soldier.IsKilled())
 		{
 			Hide ();
@@ -65,7 +66,6 @@ public class SoldierInfoUI : IUserInterface
 		}
 		Show ();
 
-		// 顯示Soldier資訊
 		// Icon
 		IAssetFactory Factory = PBDFactory.GetAssetFactory();
 		m_Icon.sprite = Factory.LoadSprite( m_Soldier.GetIconSpriteName());

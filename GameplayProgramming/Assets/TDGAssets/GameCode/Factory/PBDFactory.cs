@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 取得P-BaseDefenseGame中所使用的工廠
 public static class PBDFactory
 {
 	private static bool   		 m_bLoadFromResource = true;

@@ -67,7 +67,6 @@ public class CampInfoUI : IUserInterface
 
 	public void ShowInfo(ICamp Camp)
 	{
-		//Debug.Log("顯示兵營資訊");
 		Show ();
 		m_Camp = Camp;
 

@@ -79,7 +79,6 @@ public class GameStateInfoUI : IUserInterface
 	{
 		base.Update ();
 
-		// 執行角色計算Visitor
 		m_UnitCountVisitor.Reset();
 		m_TDGame.RunCharacterVisitor(m_UnitCountVisitor);
 
