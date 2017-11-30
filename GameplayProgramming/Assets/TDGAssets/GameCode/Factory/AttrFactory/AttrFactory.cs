@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public class AttrFactory : IAttrFactory
 {
-	private Dictionary<int,BaseAttr>  		m_SoldierAttrDB = null;
-	private Dictionary<int,EnemyBaseAttr> 	m_EnemyAttrDB 	= null;
-	private Dictionary<int,WeaponAttr> 		m_WeaponAttrDB 	= null;
-	private Dictionary<int,AdditionalAttr>  m_AdditionalAttrDB=null;
+	private Dictionary<int, BaseAttr>  		m_SoldierAttrDB = null;
+	private Dictionary<int, EnemyBaseAttr> 	m_EnemyAttrDB 	= null;
+	private Dictionary<int, WeaponAttr> 	m_WeaponAttrDB 	= null;
+	private Dictionary<int, AdditionalAttr> m_AdditionalAttrDB = null;
 	
 	public AttrFactory()
 	{
@@ -16,7 +16,6 @@ public class AttrFactory : IAttrFactory
 		InitAdditionalAttr();
 	}
 
-	// 建立所有Soldier的數值
 	private void InitSoldierAttr()
 	{
 		m_SoldierAttrDB = new Dictionary<int,BaseAttr>();
@@ -28,7 +27,7 @@ public class AttrFactory : IAttrFactory
 
 	private void InitEnemyAttr()
 	{
-		m_EnemyAttrDB 	= new Dictionary<int,EnemyBaseAttr>();
+		m_EnemyAttrDB = new Dictionary<int,EnemyBaseAttr>();
 
 		m_EnemyAttrDB.Add (  1, new EnemyBaseAttr(5, 3.0f, "Elf", 10) );
 		m_EnemyAttrDB.Add (  2, new EnemyBaseAttr(15,3.1f, "Troll", 20) ); 
@@ -107,12 +106,11 @@ public class AttrFactory : IAttrFactory
 		return theSoldierAttr;
 	}
 
-	// 取得Enemy的數值,傳入外部參數CritRate
 	public override EnemyAttr GetEnemyAttr( int AttrID )
 	{
 		if( m_EnemyAttrDB.ContainsKey( AttrID )==false)
 		{
-			Debug.LogWarning("GetEnemyAttr:AttrID["+AttrID+"]數值不存在");
+			Debug.LogWarning("ERROR");
 			return null;
 		}
 		

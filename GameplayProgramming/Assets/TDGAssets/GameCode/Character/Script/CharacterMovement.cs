@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
 	private float m_MinWalkSpeed = 2.0f; 
 	private float m_Speed = 0f;
 	private float m_IdleWeight = 0f;
-	//---------------------------------------------------------------------------
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -47,7 +47,7 @@ public class CharacterMovement : MonoBehaviour
 		m_AnimationComponent[m_AttackAnimClip.name].weight = 1f;
 		m_AnimationComponent[m_AttackAnimClip.name].wrapMode = WrapMode.Once;			
 	}	
-	//---------------------------------------------------------------------------------------
+
 	void FixedUpdate()
 	{
 		m_Velocity = (m_Tr.position - m_LastPosition) / Time.deltaTime;
@@ -57,7 +57,6 @@ public class CharacterMovement : MonoBehaviour
 		m_LastPosition = m_Tr.position;
 	}    
 		
-	//---------------------------------------------------------------------------
 	// Update is called once per frame
 	void Update () 
 	{
@@ -67,26 +66,10 @@ public class CharacterMovement : MonoBehaviour
 			m_AnimationComponent.CrossFade(m_MoveAnimClip.name);
 		
 	}
-	//---------------------------------------------------------------------------------------
-	// 顯示攻擊動作
+
 	public void PlayAttackAnim()
 	{			
-		// 停止一般動態
-		//StopAnim();
-		
-		// 移除現有的融合動態        
-		//RemoveAttackMixingTransform();
-		
-		// 停掉前一個開攻擊動作,讓攻擊動能配合上技能發出的頻率
-		m_AnimationComponent.Stop(m_AttackAnimClip.name);
-		
-		// 有移動的狀態要加入融接
-		/*if (m_Speed > 0.2)
-		{
-			m_AnimationComponent[m_AttackAnimClip.name].AddMixingTransform(m_UpperBodyBone);
-			m_AttackAnimClip.bAddMixingTransformed = true;
-		}*/
-		
+		m_AnimationComponent.Stop(m_AttackAnimClip.name);		
 		m_AnimationComponent[m_AttackAnimClip.name].enabled = true;
 		m_AnimationComponent.CrossFade(m_AttackAnimClip.name,0);        
 	}

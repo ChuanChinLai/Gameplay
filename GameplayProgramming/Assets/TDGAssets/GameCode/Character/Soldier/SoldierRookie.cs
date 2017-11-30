@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 新兵
 public class SoldierRookie : ISoldier
 {	
 	public SoldierRookie()

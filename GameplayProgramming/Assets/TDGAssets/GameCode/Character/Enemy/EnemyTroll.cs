@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 山妖
 public class EnemyTroll  : IEnemy
 {
 	public EnemyTroll()
@@ -12,19 +11,16 @@ public class EnemyTroll  : IEnemy
 		m_IconSpriteName = "OgreIcon";
 	}
 	
-	// 播放音效
 	public override void DoPlayHitSound()
 	{
-		//Debug.Log ("EnemyTroll.PlayHitSound");
+
 	}
 	
-	// 播放特效
 	public override void DoShowHitEffect()
 	{
 		PlayEffect( "TrollHitEffect" );
 	}
 
-	// 執行Visitor
 	public override void RunVisitor(ICharacterVisitor Visitor)
 	{
 		Visitor.VisitEnemyTroll(this);

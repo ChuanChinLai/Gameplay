@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 怪物
 public class EnemyOgre  : IEnemy
 {
 	public EnemyOgre()
@@ -12,19 +11,15 @@ public class EnemyOgre  : IEnemy
 		m_IconSpriteName = "OgreIcon";
 	}
 	
-	// 播放音效
 	public override void DoPlayHitSound()
 	{
-		//Debug.Log ("EnemyOgre.PlayHitSound");
 	}
 	
-	// 播放特效
 	public override void DoShowHitEffect()
 	{
 		PlayEffect( "OgreHitEffect" );
 	}
 
-	// 執行Visitor
 	public override void RunVisitor(ICharacterVisitor Visitor)
 	{
 		Visitor.VisitEnemyOgre(this);

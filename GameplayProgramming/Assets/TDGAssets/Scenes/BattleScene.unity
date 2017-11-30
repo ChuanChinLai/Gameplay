@@ -934,7 +934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u58EB\u5175Name"
+  m_Text: Name
 --- !u!222 &173927492
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1365,7 +1365,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4E00\u4E8C\u4E09\u56DB\u4E94\u516D\u4E03\u516B\u4E5D\u5341\u4E00\u4E8C\u4E09\u56DB\u4E94\u516D\u4E03\u516B\u4E5D\u5341\u4E00\u4E8C\u4E09\u56DB\u4E94\u516D\u4E03\u516B\u4E5D\u5341\u4E00\u4E8C\u4E09\u56DB\u4E94\u516D\u4E03\u516B\u4E5D\u5341\u4E00\u4E8C\u4E09\u56DB\u4E94\u516D\u4E03\u516B\u4E5D\u5341"
+  m_Text: 
 --- !u!222 &240622810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1836,7 +1836,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u76EE\u524D\u95DC\u5361:xxx"
+  m_Text: Stage:xxx
 --- !u!222 &307010163
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4124,7 +4124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6211\u65B9\u55AE\u4F4D\u6578:xxx"
+  m_Text: count:xxx
 --- !u!222 &664270469
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4466,7 +4466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6575\u65B9\u55AE\u4F4D\u6578:xxx"
+  m_Text: count:xxx
 --- !u!222 &856964513
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5116,7 +5116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5175\u71DF\u7B49\u7D1A:1"
+  m_Text: Level:1
 --- !u!222 &984368988
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6802,7 +6802,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6B66\u5668\u7B49\u7D1A:0"
+  m_Text: Level:0
 --- !u!222 &1240700564
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6953,7 +6953,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u76EE\u524D\u95DC\u5361"
+  m_Text: TEST
 --- !u!222 &1295562196
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8762,7 +8762,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u76EE\u524D\u95DC\u5361"
+  m_Text: TEST
 --- !u!222 &1676601199
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11019,7 +11019,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5175\u71DFName"
+  m_Text: Name
 --- !u!222 &2107340784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11233,7 +11233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u76EE\u524D\u95DC\u5361"
+  m_Text: TEST
 --- !u!222 &2132192908
 CanvasRenderer:
   m_ObjectHideFlags: 0
