@@ -13,6 +13,7 @@ public class CampOnClick : MonoBehaviour
 
 	public void OnClick()
 	{
+        Debug.Log("Click");
 		TowerDefenseGame.Instance.ShowCampInfo( theCamp );
 	}
 }

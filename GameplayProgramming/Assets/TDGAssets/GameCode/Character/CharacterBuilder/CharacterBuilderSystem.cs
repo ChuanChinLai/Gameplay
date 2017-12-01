@@ -15,17 +15,14 @@ public class CharacterBuilderSystem : IGameSystem
 	{}
 
 
-	// 建立 
 	public void Construct(ICharacterBuilder theBuilder)
 	{
-		// 利用Builder產生各部份加入Product中
 		theBuilder.LoadAsset( ++m_GameObjectID );
 		theBuilder.AddOnClickScript();
 		theBuilder.AddWeapon();
 		theBuilder.SetCharacterAttr();
 		theBuilder.AddAI();
 
-		// 加入管理器內
 		theBuilder.AddCharacterSystem( m_TDGame );
 	}
 }

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 增加Solder勳章
 public class SoldierAddMedalVisitor : ICharacterVisitor 
 {
 	TowerDefenseGame m_TDGame = null;
@@ -16,7 +15,6 @@ public class SoldierAddMedalVisitor : ICharacterVisitor
 		base.VisitSoldier( Soldier);
 		Soldier.AddMedal();
 
-		// 遊戲事件
 		m_TDGame.NotifyGameEvent( ENUM_GameEvent.SoldierUpgate, Soldier); 
 	}
 }

@@ -103,7 +103,7 @@ public class TowerDefenseGame
 
 	private void InputProcess()
 	{
-		if(Input.GetMouseButtonUp( 0 ) ==false)
+		if(Input.GetMouseButtonUp( 0 ) == false)
 			return ;
 		
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

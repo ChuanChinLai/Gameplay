@@ -45,29 +45,21 @@ public class SoldierBuilder : ICharacterBuilder
 		
 	public override void SetCharacterAttr()
 	{
-		// 取得Soldier的數值
 		IAttrFactory theAttrFactory = PBDFactory.GetAttrFactory();
 		int AttrID = m_BuildParam.NewCharacter.GetAttrID();
 		SoldierAttr theSoldierAttr = theAttrFactory.GetSoldierAttr( AttrID ); 
 
-		// 設定
 		theSoldierAttr.SetAttStrategy( new SoldierAttrStrategy() );
-
-		// 設定等級
 		theSoldierAttr.SetSoldierLv( m_BuildParam.Lv );
-		
-		// 設定給角色
 		m_BuildParam.NewCharacter.SetCharacterAttr( theSoldierAttr );
 	}
 
-	// 加入AI
 	public override void AddAI()
 	{
 		SoldierAI theAI = new SoldierAI( m_BuildParam.NewCharacter );
 		m_BuildParam.NewCharacter.SetAI( theAI );
 	}
 
-	// 加入管理器
 	public override void AddCharacterSystem( TowerDefenseGame TDGame )
 	{
 		TDGame.AddSoldier( m_BuildParam.NewCharacter as ISoldier );

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Soldier數值
 public class SoldierAttr : ICharacterAttr
 {
 	protected int 	m_SoldierLv;

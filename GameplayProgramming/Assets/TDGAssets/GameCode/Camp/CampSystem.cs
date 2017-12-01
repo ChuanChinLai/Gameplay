@@ -129,7 +129,7 @@ public class CampSystem : IGameSystem
 		return theTrainPoint.transform.position;
 	}
 
-	private void AddCampScript(GameObject theGameObject,ICamp Camp)
+	private void AddCampScript(GameObject theGameObject, ICamp Camp)
 	{
 		CampOnClick CampScript = theGameObject.AddComponent<CampOnClick>();
 		CampScript.theCamp = Camp;

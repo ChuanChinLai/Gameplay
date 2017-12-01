@@ -9,8 +9,6 @@ public static class PBDFactory
 	private static IWeaponFactory    m_WeaponFactory = null;
 	private static IAttrFactory      m_AttrFactory = null;
 	
-	private static TCharacterFactory_Generic m_TCharacterFactory = null;
-
 	// 取得將Unity Asset實作化的工廠
 	public static IAssetFactory GetAssetFactory()
 	{
@@ -31,14 +29,6 @@ public static class PBDFactory
 		if( m_CharacterFactory == null)		
 			m_CharacterFactory = new CharacterFactory();
 		return m_CharacterFactory;
-	}
-
-	// 遊戲角色工廠(Generic版)
-	public static TCharacterFactory_Generic GetTCharacterFactory()
-	{
-		if( m_TCharacterFactory == null)		
-			m_TCharacterFactory = new CharacterFactory_Generic();
-		return m_TCharacterFactory;
 	}
 
 	// 武器工廠

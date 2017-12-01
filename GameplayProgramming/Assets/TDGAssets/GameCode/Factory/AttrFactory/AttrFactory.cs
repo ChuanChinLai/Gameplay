@@ -60,12 +60,10 @@ public class AttrFactory : IAttrFactory
 	
 	public override SoldierAttr GetSoldierAttr( int AttrID )
 	{
-		if( m_SoldierAttrDB.ContainsKey( AttrID )==false)
+		if( m_SoldierAttrDB.ContainsKey( AttrID ) == false)
 		{
-			Debug.LogWarning("GetSoldierAttr:AttrID["+AttrID+"]數值不存在");
 			return null;
 		}
-
 
 		SoldierAttr NewAttr = new SoldierAttr();
         NewAttr.SetSoldierAttr(m_SoldierAttrDB[AttrID]);
@@ -78,7 +76,6 @@ public class AttrFactory : IAttrFactory
 		AdditionalAttr theAdditionalAttr =  GetAdditionalAttr( AttrID );
 		if( theAdditionalAttr == null)
 		{
-			Debug.LogWarning("GetEliteSoldierAttr:加乘數值["+AttrID+"]不存在");
 			return theSoldierAttr;
 		}
 
@@ -92,9 +89,9 @@ public class AttrFactory : IAttrFactory
 			theAttrDecorator = new SuffixBaseAttr();
 			break;
 		}
+
 		if(theAttrDecorator==null)
 		{
-			Debug.LogWarning("GetEliteSoldierAttr:無法針對["+emType+"]產生裝飾者");
 			return theSoldierAttr;
 		}
 
@@ -114,34 +111,28 @@ public class AttrFactory : IAttrFactory
 			return null;
 		}
 		
-		// 產生數物件並設定共用的數值資料
 		EnemyAttr NewAttr = new EnemyAttr();
 		NewAttr.SetEnemyAttr( m_EnemyAttrDB[AttrID]);		
 		return NewAttr;
 	}
 	
-	// 取得武器的數值
 	public override WeaponAttr GetWeaponAttr( int AttrID )
 	{
 		if( m_WeaponAttrDB.ContainsKey( AttrID )==false)
 		{
-			Debug.LogWarning("GetWeaponAttr:AttrID["+AttrID+"]數值不存在");
 			return null;
 		}
-		// 直接回傳共用的武器數值
 		return m_WeaponAttrDB[AttrID];
 	}
 
-	// 取得加乘用的數值
+
 	public override AdditionalAttr GetAdditionalAttr( int AttrID )
 	{
 		if( m_AdditionalAttrDB.ContainsKey( AttrID )==false)
 		{
-			Debug.LogWarning("GetAdditionalAttr:AttrID["+AttrID+"]數值不存在");
 			return null;
 		}
 
-		// 直接回傳加乘用的數值
 		return m_AdditionalAttrDB[AttrID];
 	}
 	
