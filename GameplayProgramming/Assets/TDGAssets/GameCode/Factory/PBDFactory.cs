@@ -9,21 +9,17 @@ public static class PBDFactory
 	private static IWeaponFactory    m_WeaponFactory = null;
 	private static IAttrFactory      m_AttrFactory = null;
 	
-	// 取得將Unity Asset實作化的工廠
+
 	public static IAssetFactory GetAssetFactory()
 	{
 		if( m_AssetFactory == null)
 		{
 			if( m_bLoadFromResource)
-				//m_AssetFactory = new ResourceAssetFactory();
 				m_AssetFactory = new ResourceAssetProxyFactory(); 
-			else
-				m_AssetFactory = new RemoteAssetFactory();
 		}
 		return m_AssetFactory;
 	}
 
-	// 遊戲角色工廠
 	public static ICharacterFactory GetCharacterFactory()
 	{
 		if( m_CharacterFactory == null)		
@@ -31,7 +27,6 @@ public static class PBDFactory
 		return m_CharacterFactory;
 	}
 
-	// 武器工廠
 	public static IWeaponFactory GetWeaponFactory()
 	{
 		if( m_WeaponFactory == null)		
@@ -39,7 +34,6 @@ public static class PBDFactory
 		return m_WeaponFactory;
 	}
 
-	// 數值工廠
 	public static IAttrFactory GetAttrFactory()
 	{
 		if( m_AttrFactory == null)		

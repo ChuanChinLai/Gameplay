@@ -82,6 +82,7 @@ public class CharacterSystem : IGameSystem
 	{
 		foreach( ICharacter Character in m_Soldiers)
 			Character.RunVisitor( Visitor);
+
 		foreach( ICharacter Character in m_Enemys)
 			Character.RunVisitor( Visitor);
 	}

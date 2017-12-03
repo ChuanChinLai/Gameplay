@@ -32,7 +32,7 @@ public class WeaponFactory : IWeaponFactory
 			AttrID	= 3;
 			break;		
 		default:
-			Debug.LogWarning("CreateWeapon:無法建立["+emWeapon+"]");
+			Debug.LogWarning("ERROR");
 			return null;
 		}
 

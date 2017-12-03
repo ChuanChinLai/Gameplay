@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 遊戲使用者界面
 public abstract class IUserInterface
 {
 	protected TowerDefenseGame  m_TDGame = null;

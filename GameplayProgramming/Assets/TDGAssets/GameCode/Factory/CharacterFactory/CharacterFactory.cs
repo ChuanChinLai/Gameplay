@@ -21,7 +21,7 @@ public class CharacterFactory : ICharacterFactory
 			SoldierParam.NewCharacter = new SoldierCaptain();
 			break;
 		default:
-            Debug.LogWarning("CreateSoldier:無法建立[" + emSoldier + "]");
+            Debug.LogWarning("ERROR");
 			return null;
 		}
 
@@ -58,7 +58,7 @@ public class CharacterFactory : ICharacterFactory
 			EnemyParam.NewCharacter = new EnemyOgre();
 			break;
 		default:
-			Debug.LogWarning("無法建立["+emEnemy+"]");
+			Debug.LogWarning("Error");
 			return null;
 		}
 

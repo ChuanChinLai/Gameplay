@@ -249,23 +249,4 @@ public class TowerDefenseGame
 		m_AchievementSystem.SetSaveData( OldData );
 		return OldData;
 	}
-	
-	/*#region 直接取得角色數量的實作方式
-	// 目前Soldier數量
-	public int GetSoldierCount()
-	{
-		if( m_CharacterSystem !=null)
-			return m_CharacterSystem.GetSoldierCount();
-		return 0;
-	}
-
-	// 目前Soldier數量
-	public int GetSoldierCount( ENUM_Soldier emSoldier)
-	{
-		if( m_CharacterSystem !=null)
-			return m_CharacterSystem.GetSoldierCount(emSoldier);
-		return 0;
-	}	
-	#endregion*/
-
 }

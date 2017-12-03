@@ -36,7 +36,6 @@ public class TrainSoldierCommand : ITrainCommand
 		else
 			return ;
 		
-		//Debug.Log("加上前輟能力:"+AttrID);
 		IAttrFactory AttrFactory = PBDFactory.GetAttrFactory();
 		SoldierAttr PreAttr = AttrFactory.GetEliteSoldierAttr(ENUM_AttrDecorator.Prefix, AttrID, Soldier.GetSoldierValue());
 		Soldier.SetCharacterAttr(PreAttr);

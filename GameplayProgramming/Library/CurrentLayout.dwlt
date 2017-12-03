@@ -91,7 +91,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 342}
   m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 9
+  controlID: 160
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 342}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 59
+  controlID: 107
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -316,9 +316,9 @@ MonoBehaviour:
     height: 710
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b2060000
+    m_SelectedIDs: 9a070000
     m_LastClickedID: 0
-    m_ExpandedIDs: a6fbffff00000000
+    m_ExpandedIDs: a0fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -412,33 +412,33 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/TDGAssets/GameCode/Character/CharacterBuilder
+    - Assets/TDGAssets/GameCode/Factory/AttrFactory
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/TDGAssets/GameCode/Character/CharacterBuilder
+  - Assets/TDGAssets/GameCode/Factory/AttrFactory
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Chuan-Chin Lai\Desktop\Gameplay\GameplayProgramming
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3c280000
-    m_LastClickedID: 10300
-    m_ExpandedIDs: 00000000fc270000062800001228000018280000e4280000222900005a290000862a0000882a00008a2a00008c2a00008e2a0000902a0000922a0000942a000000ca9a3bffffff7f
+    m_SelectedIDs: 22280000
+    m_LastClickedID: 10274
+    m_ExpandedIDs: 00000000fa2700000428000010280000162800008c2800002029000058290000842a0000862a0000882a00008a2a00008c2a00008e2a0000902a0000922a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: BaseClass
+      m_OriginalName: BaseClass
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 10582
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
@@ -452,7 +452,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc270000062800001228000018280000e4280000222900005a290000862a0000882a00008a2a00008c2a00008e2a0000902a0000922a0000942a0000
+    m_ExpandedIDs: 00000000fa270000042800001028000016280000e22800002029000058290000842a0000862a0000882a00008a2a00008c2a00008e2a0000902a0000922a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -480,18 +480,18 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 
+    m_ExpandedInstanceIDs: 7a290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: IAIState
-      m_OriginalName: IAIState
+      m_Name: WeaponRifle
+      m_OriginalName: WeaponRifle
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 1516
+      m_UserData: 1976
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0

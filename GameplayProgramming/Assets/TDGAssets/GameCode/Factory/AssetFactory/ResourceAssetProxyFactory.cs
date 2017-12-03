@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-// 做為ResourceAssetFactory的Proxy代理者,會記錄已經載入過的資源
 public class ResourceAssetProxyFactory : IAssetFactory
 {
-	private ResourceAssetFactory m_RealFactory = null; // 實際負責載入的AssetFactory
+	private ResourceAssetFactory m_RealFactory = null;
 	private Dictionary<string,UnityEngine.Object> m_Soldiers = null;
 	private Dictionary<string,UnityEngine.Object> m_Enemys = null;
 	private Dictionary<string,UnityEngine.Object> m_Weapons = null;
@@ -23,10 +22,9 @@ public class ResourceAssetProxyFactory : IAssetFactory
 		m_Sprites = new Dictionary<string,Sprite>();
 	}
 	
-	// 產生Soldier
+
 	public override GameObject LoadSoldier( string AssetName )
 	{
-		// 還沒載入時
 		if( m_Soldiers.ContainsKey( AssetName )==false)
 		{
 			UnityEngine.Object res = m_RealFactory.LoadGameObjectFromResourcePath( ResourceAssetFactory.SoldierPath + AssetName );
@@ -35,7 +33,7 @@ public class ResourceAssetProxyFactory : IAssetFactory
 		return  UnityEngine.Object.Instantiate( m_Soldiers[AssetName] ) as GameObject;
 	}
 	
-	// 產生Enemy
+
 	public override GameObject LoadEnemy( string AssetName )
 	{
 		if( m_Enemys.ContainsKey( AssetName )==false)
@@ -46,7 +44,7 @@ public class ResourceAssetProxyFactory : IAssetFactory
 		return  UnityEngine.Object.Instantiate( m_Enemys[AssetName] ) as GameObject;
 	}
 
-	// 產生Weapon
+
 	public override GameObject LoadWeapon( string AssetName )
 	{
 		if( m_Weapons.ContainsKey( AssetName )==false)
@@ -57,7 +55,7 @@ public class ResourceAssetProxyFactory : IAssetFactory
 		return  UnityEngine.Object.Instantiate( m_Weapons[AssetName] ) as GameObject;
 	}
 
-	// 產生特效
+
 	public override GameObject LoadEffect( string AssetName )
 	{
 		if( m_Effects.ContainsKey( AssetName )==false)
@@ -68,7 +66,7 @@ public class ResourceAssetProxyFactory : IAssetFactory
 		return  UnityEngine.Object.Instantiate( m_Effects[AssetName] ) as GameObject;
 	}
 
-	// 產生AudioClip
+
 	public override AudioClip  LoadAudioClip(string ClipName )
 	{
 		if( m_Audios.ContainsKey( ClipName )==false)
@@ -79,7 +77,7 @@ public class ResourceAssetProxyFactory : IAssetFactory
 		return m_Audios[ClipName];
 	}
 
-	// 產生Sprite
+
 	public override Sprite LoadSprite(string SpriteName)
 	{
 		if( m_Sprites.ContainsKey( SpriteName )==false)

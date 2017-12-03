@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class MoveAIState : IAIState 
 {
-	private const float MOVE_CHECK_DIST = 1.5f; //
+	private const float MOVE_CHECK_DIST = 1.5f;
 	bool 	m_bOnMove = false;
 	Vector3	m_AttackPosition = Vector3.zero;
 	
